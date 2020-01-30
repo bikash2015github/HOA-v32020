@@ -1,0 +1,33 @@
+﻿@using Product.WebApp.Models
+@model List<Product>
+@{
+    ViewData["Title"] = "Product List";
+}
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Product Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Manufacturer</th>
+            <th scope="col">Type</th>
+            <th scope="col">Manufacturing Date</th>
+            <th scope="col">Expiry Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Product item in Model)
+        {
+        <tr>
+            <th scope="row"> @item.productId</th>
+            <td>@item.name</td>
+            <td>@item.description</td>
+            <td>@item.manufacturer</td>
+            <td>@item.type</td>
+            <td>@item.dateOfManufacturing</td>
+            <td>@item.dateOfExpiry</td>
+        </tr>
+        }
+    </tbody>
+</table>
+

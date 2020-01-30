@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <environment include="development">
+        <link href="~/lib/bootstrap/css/bootstrap.css" rel="stylesheet" />
+        <script src="~/lib/jquery/jquery.js"></script>
+        <script src="~/lib/bootstrap/js/bootstrap.js"></script>
+    </environment>
+    <environment exclude="development">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    </environment>
+    <link href="~/styles/StyleSheet.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewBag.Title</title>
+
+</head>
+<body>
+    <div class="container">
+    <div class="justify-content-center text-center">
+        <h1>Product HUB Management</h1>
+    </div>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#collapsenavbar">
+            <span class="navbar-toggle-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsenavbar">
+            <ul class=" navbar-nav">
+                <li class=" nav-item">
+                    <a asp-action="index" asp-controller="home" class="nav-link"> Product List</a>
+                </li>
+                <li class=" nav-item">
+                    <a asp-action="index" asp-controller="home" class="nav-link"> Add new product</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div >
+        @RenderBody()
+    </div>
+        </div>
+</body>
+</html>

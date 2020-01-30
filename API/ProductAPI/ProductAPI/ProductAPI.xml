@@ -1,0 +1,359 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ProductAPI</name>
+    </assembly>
+    <members>
+        <member name="T:ProductAPI.Controllers.ProductController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ProductAPI.Controllers.ProductController.#ctor(ProductAPI.Managers.IProductManager)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ProductAPI.Controllers.ProductController" /> class.
+            </summary>
+            <param name="productManager">The product manager.</param>
+        </member>
+        <member name="M:ProductAPI.Controllers.ProductController.GetProducts(System.String,ProductAPI.Models.QueryParamsInput)">
+            <summary>
+            Gets a list of products
+            </summary>
+            <param name="computerName">Name of the computer.</param>
+            <param name="qparams">The product type and manufacturer.</param>
+            <returns>
+            A list of products.
+            </returns>
+            <exception cref="T:System.Exception">Database connection Open failed.</exception>
+            <response code="200">Returns a list of products</response>
+            <response code="204">No content found</response>
+        </member>
+        <member name="M:ProductAPI.Controllers.ProductController.UpsertProduct(System.String,ProductAPI.Models.Product)">
+            <summary>
+             Insert or update a product
+            </summary>
+            <param name="computerName"> for tracing a request</param>
+            <param name="product">the product information that will insert or update</param>
+            <returns></returns>
+            <exception cref="T:System.Exception">Database connection Open failed or any exception thrown while insert or update the record in db</exception>
+            <response code="200">Successfully inserted or updated the product</response>
+            <response code="400"> input data format is not correct</response>
+        </member>
+        <member name="M:ProductAPI.DataAccess.MockProductRepository.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ProductAPI.DataAccess.MockProductRepository.Add(ProductAPI.Entities.ProductInfo)">
+            <summary>
+            
+            </summary>
+            <param name="product"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ProductAPI.DataAccess.MockProductRepository.Delete(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ProductAPI.DataAccess.MockProductRepository.Get">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ProductAPI.DataAccess.MockProductRepository.Get(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ProductAPI.DataAccess.MockProductRepository.Update(ProductAPI.Entities.ProductInfo)">
+            <summary>
+            
+            </summary>
+            <param name="changedProduct"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ProductAPI.DataAccess.ProductDBContext">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ProductAPI.DataAccess.ProductDBContext._dbContextOptions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ProductAPI.DataAccess.ProductDBContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{ProductAPI.DataAccess.ProductDBContext})">
+            <summary>
+            
+            </summary>
+            <param name="options"></param>
+        </member>
+        <member name="M:ProductAPI.DataAccess.ProductDBContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="model"></param>
+        </member>
+        <member name="T:ProductAPI.DataAccess.SQLProductRepository">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ProductAPI.DataAccess.SQLProductRepository.#ctor(ProductAPI.DataAccess.ProductDBContext)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ProductAPI.DataAccess.SQLProductRepository.Add(ProductAPI.Entities.ProductInfo)">
+            <summary>
+            
+            </summary>
+            <param name="product"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ProductAPI.DataAccess.SQLProductRepository.Delete(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ProductAPI.DataAccess.SQLProductRepository.Get">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ProductAPI.DataAccess.SQLProductRepository.Get(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ProductAPI.DataAccess.SQLProductRepository.Update(ProductAPI.Entities.ProductInfo)">
+            <summary>
+            
+            </summary>
+            <param name="changedProduct"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ProductAPI.Entities.ModelBuilderExtension.Seed(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="model"></param>
+        </member>
+        <member name="T:ProductAPI.Entities.ProductInfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProductAPI.Entities.ProductInfo.id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProductAPI.Entities.ProductInfo.name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProductAPI.Entities.ProductInfo.description">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProductAPI.Entities.ProductInfo.manufacturingDate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProductAPI.Entities.ProductInfo.expiryDate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProductAPI.Entities.ProductInfo.productType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProductAPI.Entities.ProductInfo.manufacturer">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ProductAPI.Managers.IProductManager">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ProductAPI.Managers.IProductManager.GetProducts(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="manufacturer"></param>
+            <param name="productType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ProductAPI.Managers.IProductManager.UpdateProduct(ProductAPI.Models.Product)">
+            <summary>
+            
+            </summary>
+            <param name="changedProduct"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ProductAPI.Managers.ProductManager">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ProductAPI.Managers.ProductManager.productRepository">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ProductAPI.Managers.ProductManager.#ctor(ProductAPI.DataAccess.IProductRepository)">
+            <summary>
+            
+            </summary>
+            <param name="productRepository"></param>
+        </member>
+        <member name="M:ProductAPI.Managers.ProductManager.UpdateProduct(ProductAPI.Models.Product)">
+            <summary>
+            
+            </summary>
+            <param name="changedProduct"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ProductAPI.Managers.ProductManager.GetProductFilteredByProductType(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="productType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ProductAPI.Managers.ProductManager.GetProductFilteredByManufacturer(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="manufacturer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ProductAPI.Managers.ProductManager.GetProductFilteredByManufacturerandProductType(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="manufacturer"></param>
+            <param name="productType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ProductAPI.Managers.ProductManager.GetProducts(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="manufacturer"></param>
+            <param name="productType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ProductAPI.Managers.ProductManager.ConvertEntityToModel(ProductAPI.Entities.ProductInfo,ProductAPI.Models.Product)">
+            <summary>
+            Convert entity to model
+            </summary>
+            <param name="prodInfo"></param>
+            <param name="product"></param>
+        </member>
+        <member name="M:ProductAPI.Managers.ProductManager.ConvertModelToEntity(ProductAPI.Models.Product,ProductAPI.Entities.ProductInfo)">
+            <summary>
+            Convert model to entity
+            </summary>
+            <param name="model"></param>
+            <param name="entity"></param>
+        </member>
+        <member name="T:ProductAPI.Models.Product">
+            <summary>
+            Product Model, 
+            used for any request to post the product information
+            </summary>
+        </member>
+        <member name="P:ProductAPI.Models.Product.productId">
+            <summary>
+            get or sets the product id
+            </summary>
+        </member>
+        <member name="P:ProductAPI.Models.Product.name">
+            <summary>
+            get or sets the product name
+            </summary>
+        </member>
+        <member name="P:ProductAPI.Models.Product.description">
+            <summary>
+            get or sets the product description
+            </summary>
+        </member>
+        <member name="P:ProductAPI.Models.Product.manufacturer">
+            <summary>
+            get or sets the product manufacturer
+            </summary>
+        </member>
+        <member name="P:ProductAPI.Models.Product.type">
+            <summary>
+            get or sets the product manufacturer type
+            </summary>
+        </member>
+        <member name="P:ProductAPI.Models.Product.dateOfManufacturing">
+            <summary>
+            get or sets the manufacturing date of  a product
+            </summary>
+        </member>
+        <member name="P:ProductAPI.Models.Product.dateOfExpiry">
+            <summary>
+            get or sets the expiry date of a product
+            </summary>
+        </member>
+        <member name="T:ProductAPI.Models.QueryParamsInput">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProductAPI.Models.QueryParamsInput.manufacturer">
+            <summary>
+            get or sets the product manufacturer
+            </summary>
+        </member>
+        <member name="P:ProductAPI.Models.QueryParamsInput.type">
+            <summary>
+            get or sets the product manufacturer type
+            </summary>
+        </member>
+        <member name="P:ProductAPI.Startup.HostingEnvironment">
+            <summary>
+            Gets the hosting environment.
+            </summary>
+            <value>
+            The hosting environment.
+            </value>
+        </member>
+        <member name="P:ProductAPI.Startup.Configuration">
+            <summary>
+            Gets the configuration.
+            </summary>
+            <value>
+            The configuration.
+            </value>
+        </member>
+        <member name="M:ProductAPI.Startup.ConfigureUnitTestServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            NOTE: This is a placeholder Startup used for Unit Tests since .Net Core is smart enough to use environment variables to override startup methods
+            </summary>
+            <param name="services">The services.</param>
+        </member>
+    </members>
+</doc>
